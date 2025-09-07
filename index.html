@@ -38,71 +38,97 @@
 </main>
 <script>
 // ドキュメントが完全に読み込まれた後に実行
-	document.addEventListener('DOMContentLoaded', () => {
-	const menuButton = document.querySelector('.menu-button');
-	setTimeout(() => {
-	menuButton.classList.add('visible');
-	}, 1000);
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.querySelector('.menu-button');
+    setTimeout(() => {
+        menuButton.classList.add('visible');
+    }, 1000);
 
-const images = [
-		'animation/001.png',
-		'animation/002.png',
-		'animation/003.png',
-		'animation/004.png',
-		'animation/005.png',
-		'animation/006.png',
-		'animation/007.png',
-		'animation/008.png',
-		'animation/009.png',
-		'animation/010.png',
-		'animation/011.png',
-		'animation/012.png',
-		'animation/013.png',
-		'animation/014.png',
-		'animation/015.png',
-		'animation/016.png',
-		'animation/017.png',
-		'animation/018.png',
-		'animation/019.png',
-		'animation/020.png',
-		'animation/021.png',
-		'animation/022.png',
-		'animation/023.png',
-		'animation/024.png',
-		'animation/025.png',
-		'animation/026.png',
-		'animation/027.png',
-		'animation/028.png',
-		'animation/029.png',
-		'animation/030.png',
-		'animation/031.png',
-		'animation/032.png',
-		'animation/033.png',
-		'animation/034.png',
-		'animation/035.png',
-		'animation/036.png',
-		'animation/037.png',
-		'animation/038.png',
-		'animation/039.png',
-		'animation/040.png'
-	];
-	const slideshowImage = document.getElementById('slideshowImage');
-	let currentIndex = 0;
+    const slideshowImage = document.getElementById('slideshowImage');
+    const images = [
+        'images/animation/001.png', // このパスはあなたのサーバー構成に合わせて修正してください
+        'images/animation/002.png',
+        'images/animation/003.png',
+        'images/animation/004.png',
+        'images/animation/005.png',
+        'images/animation/006.png',
+        'images/animation/007.png',
+        'images/animation/008.png',
+        'images/animation/009.png',
+        'images/animation/010.png',
+        'images/animation/011.png',
+        'images/animation/012.png',
+        'images/animation/013.png',
+        'images/animation/014.png',
+        'images/animation/015.png',
+        'images/animation/016.png',
+        'images/animation/017.png',
+        'images/animation/018.png',
+        'images/animation/019.png',
+        'images/animation/020.png',
+        'images/animation/021.png',
+        'images/animation/022.png',
+        'images/animation/023.png',
+        'images/animation/024.png',
+        'images/animation/025.png',
+        'images/animation/026.png',
+        'images/animation/027.png',
+        'images/animation/028.png',
+        'images/animation/029.png',
+        'images/animation/030.png',
+        'images/animation/031.png',
+        'images/animation/032.png',
+        'images/animation/033.png',
+        'images/animation/034.png',
+        'images/animation/035.png',
+        'images/animation/036.png',
+        'images/animation/037.png',
+        'images/animation/038.png',
+        'images/animation/039.png',
+        'images/animation/040.png'
+    ];
+    let currentIndex = 0;
 
-	// 1秒ごとに画像を変更する処理
-	const slideshowInterval = setInterval(() => {
-		// 次の画像のインデックスを計算
-		currentIndex++;
+    // 画像をプリロードする関数
+    function preloadImages(imageArray, callback) {
+        let loadedCount = 0;
+        const totalImages = imageArray.length;
+        
+        imageArray.forEach(imagePath => {
+            const img = new Image();
+            img.onload = () => {
+                loadedCount++;
+                if (loadedCount === totalImages) {
+                    callback();
+                }
+            };
+            img.onerror = () => {
+                // エラー発生時もカウントを進める
+                console.error(`画像の読み込みに失敗しました: ${imagePath}`);
+                loadedCount++;
+                if (loadedCount === totalImages) {
+                    callback();
+                }
+            };
+            img.src = imagePath;
+        });
+    }
 
-		// 最後の画像に達したらタイマーを停止
-		if (currentIndex >= images.length) {
-			clearInterval(slideshowInterval);
-			return; // 処理を終了
-		}
+    // すべての画像を読み込んでからスライドショーを開始
+    preloadImages(images, () => {
+        // 最初の画像をセット
+        slideshowImage.src = images[0];
 
-		// 画像の src を更新
-		slideshowImage.src = images[currentIndex];
-	}, 30); 
+        // 1秒ごとに画像を変更する処理
+        const slideshowInterval = setInterval(() => {
+            currentIndex++;
+            if (currentIndex >= images.length) {
+                clearInterval(slideshowInterval);
+                return;
+            }
+            slideshowImage.src = images[currentIndex];
+        }, 30);
+    });
 });
 </script>
 </body>
