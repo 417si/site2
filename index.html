@@ -8,14 +8,15 @@
 <link rel="icon" type="image/png" href="./images/favicon.png">
 </head>
 <body>
+<div id="loading-screen">
+  <div class="loader">
+    <span>ローディング中</span>
+  </div>
+</div>
 <input type="checkbox" id="menu-toggle">
 <label for="menu-toggle" class="menu-button">
 	<span></span>
 </label>
-<input type="checkbox" id="menu-toggle">
-<label for="menu-toggle" class="menu-button">
-</label>
-
 <nav class="menu-nav">
 	<ul>
 		<li><a href="index.html">Home</a></li>
@@ -59,9 +60,15 @@
         const slideshowImage = document.getElementById('slideshowImage');
         let currentIndex = 0;
         let imagesLoadedCount = 0;
+        const loadingScreen = document.getElementById('loading-screen');
 
         // Function to start the slideshow
         function startSlideshow() {
+            loadingScreen.style.opacity = '0';
+            loadingScreen.addEventListener('transitionend', () => {
+                loadingScreen.style.display = 'none';
+            }, { once: true });
+
             const slideshowInterval = setInterval(() => {
                 currentIndex++;
 
