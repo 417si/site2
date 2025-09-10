@@ -823,6 +823,12 @@ a:hover {
 
 
 /* ローディング画面のスタイル */
+.loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 #loading-screen {
 	position: fixed;
 	top: 0;
