@@ -865,7 +865,7 @@ a:hover {
 }
 .spinner {
     border: 4px solid #f3f3f3; /* 薄いグレー */
-    border-top: 4px solid #000; /* 黒 */
+    border-top: 4px solid #888; /* 濃いグレー*/
     border-radius: 50%;
     width: 50px;
     height: 50px;
