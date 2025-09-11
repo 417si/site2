@@ -2,7 +2,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	font-family: "AozoraMincho";
-  background: linear-gradient(rgb(255, 0, 255), rgb(255, 255, 255));
+  background: linear-gradient(rgb(200, 200, 202), rgb(255, 255, 255));
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -10,7 +10,7 @@ body .index {
 	margin: 0;
 	padding: 0;
 	font-family: "AozoraMincho";
-	background: linear-gradient(rgb(194, 195, 196), rgb(200, 200, 202));  /*bodyにグラデーションを設定 */
+	background: linear-gradient(rgb(255, 0, 255), rgb(200, 200, 202));  /*bodyにグラデーションを設定 */
 }
 .page {
 	padding: 0rem;
