@@ -2,7 +2,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	font-family: "AozoraMincho";
-	background: linear-gradient(rgb(194, 195, 196), rgb(200, 200, 202));
+	background-color: linear-gradient(rgb(250, 195, 196), rgb(200, 200, 202));
 }
 .index-page {
 	/* min-heightを削除し、コンテンツの高さに合わせる */
