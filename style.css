@@ -2,16 +2,12 @@ html, body {
 	margin: 0;
 	padding: 0;
 	font-family: "AozoraMincho";
-	background-color: linear-gradient(rgb(250, 195, 196), rgb(200, 200, 202));
+	background: linear-gradient(rgb(194, 195, 196), rgb(200, 200, 202)); /* bodyにグラデーションを設定 */
 }
 .index-page {
-	/* min-heightを削除し、コンテンツの高さに合わせる */
-	background: linear-gradient(rgb(194, 195, 196), rgb(200, 200, 202));
 	padding: 0rem;
 }
 .page {
-	/* min-heightを削除し、コンテンツの高さに合わせる */
-	background: linear-gradient(rgb(194, 195, 196), rgb(200, 200, 202));
 	padding: 0rem;
 }
 /* フォント読み込み設定 */
