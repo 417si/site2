@@ -350,7 +350,7 @@ html, body {
 	transform: translate(-50%, -50%); /* コンテンツを完全に中央に配置します */
 	color: #000;
 	text-align: center;
-	z-index: 1; /* 動画の上に表示されるようにします */
+	z-index: 70; /* 動画の上に表示されるようにします */
 }
 .footer-text p{
 	font-size:12px;
